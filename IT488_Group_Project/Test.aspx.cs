@@ -9,6 +9,7 @@ namespace IT488_Group_Project
 {
     public partial class Test : System.Web.UI.Page
     {
+        public DB db = new DB();
         protected void Page_Load(object sender, EventArgs e)
         {
 
