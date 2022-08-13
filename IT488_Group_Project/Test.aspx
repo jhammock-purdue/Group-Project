@@ -15,7 +15,8 @@
         <% var books = db.getBooks(TextBox1.Text); Response.Write("<ul>");
             foreach (var item in books)
             {
-                Response.Write("<li>" + item.Title + "</li><br/>");
+                string imgLink = "@Url.Content(\"~/Content/Images/" + item.Isbn + "png\")";
+                Response.Write("<li><img src=" + imgLink + "/>" + item.Title + "</li><br/>");
             }
             Response.Write("</ul>");%>
     </form>
