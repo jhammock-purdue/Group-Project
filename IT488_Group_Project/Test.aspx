@@ -9,16 +9,20 @@
 <body>
     <form id="form1" runat="server">
         <div>
+           
         </div>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        
+        <center>
         <% var books = db.getBooks(TextBox1.Text); Response.Write("<ul>");
             foreach (var item in books)
             {
-                string imgLink = "@Url.Content(\"~/Content/Images/" + item.Isbn + "png\")";
-                Response.Write("<li><img src=" + imgLink + "/>" + item.Title + "</li><br/>");
+                string imgHTML = "<img src=\"Content/Images/" + item.Isbn + ".jpg\" height=170px width=100px />";
+                Response.Write("<li>" + imgHTML + "<br/>" + item.Title + "<br/>   By:"  + item.Author + "</li><br/>");
+               
             }
-            Response.Write("</ul>");%>
+            Response.Write("</ul>");
+            %>
+            </center>
     </form>
 </body>
 </html>
