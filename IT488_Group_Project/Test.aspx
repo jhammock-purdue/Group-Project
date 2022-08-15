@@ -9,7 +9,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
-           Hello
+           <% var topbooks = db.getTopBooks(); Response.Write("<table>");
+            foreach (var item in topbooks)
+            {
+                Response.Write("<tr>");
+                string imgHTML = "<img src=\"Content/Images/" + item.Isbn + ".jpg\" height=170px width=100px />";
+                Response.Write("<td>" + imgHTML + "</td>");
+                Response.Write("<td>" + item.Title + "</td>");
+                Response.Write("<td>" + item.Author + "</td>");
+                              
+            }
+            Response.Write("</table>");
+            %>
         </div>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <center>
