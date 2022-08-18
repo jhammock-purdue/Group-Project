@@ -11,6 +11,7 @@ namespace IT488_Group_Project
         public string connectionString;
         public SqlConnection conn;
         public List<Book> books = new List<Book>();
+        public List<Account> accounts = new List<Account>();
         private string searchTerm = "";
 
         public DB()
@@ -34,6 +35,35 @@ namespace IT488_Group_Project
             conn.Open();
 
             string bookQuery = "SELECT Author, ISBN, Genre, Title, Amount, Release FROM[Books] where author like '%" + searchTerm + "%' or isbn like '%" + searchTerm + "%'or Genre like '%" + searchTerm + "%'or Title like '%" + searchTerm + "%'or Release like '%" + searchTerm + "%'";
+            SqlCommand cmd = new SqlCommand(bookQuery, conn);
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string author = (string)reader.GetValue(0);
+                int isbn = (int)reader.GetValue(1);
+                string genre = (string)reader.GetValue(2);
+                string title = (string)reader.GetValue(3);
+                int amount = (int)reader.GetValue(4);
+                int release = (int)reader.GetValue(5);
+
+                books.Add(new Book(title, genre, author, isbn, release, amount));
+            }
+            reader.Close();
+
+            return books;
+        }
+
+        public List<Book> getAvailableBooks()
+        {
+
+
+            SqlDataReader reader;
+
+            conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            string bookQuery = "SELECT Author, ISBN, Genre, Title, Amount, Release FROM[Books] where amount > 0";
             SqlCommand cmd = new SqlCommand(bookQuery, conn);
 
             reader = cmd.ExecuteReader();
@@ -82,6 +112,32 @@ namespace IT488_Group_Project
             return books;
         }
 
+        public List<Account> getAccounts()
+        {
+            
+
+            SqlDataReader reader;
+
+            conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            string accountQuery = "SELECT firstname, lastname, account_number FROM[dbo].[Accounts]";
+            SqlCommand cmd = new SqlCommand(accountQuery, conn);
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string first = (string)reader.GetValue(0);
+                string last = (string)reader.GetValue(1);
+                int account = (int)reader.GetValue(2);
+
+                accounts.Add(new Account(first, last, account));
+
+            }
+            reader.Close();
+
+            return accounts;
+        }
 
 
 
