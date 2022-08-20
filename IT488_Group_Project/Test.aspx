@@ -8,33 +8,27 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-           <% var topbooks = db.getTopBooks(); Response.Write("<table>");
-            foreach (var item in topbooks)
-            {
-                Response.Write("<tr>");
-                string imgHTML = "<img src=\"Content/Images/" + item.Isbn + ".jpg\" height=170px width=100px />";
-                Response.Write("<td>" + imgHTML + "</td>");
-                Response.Write("<td>" + item.Title + "</td>");
-                Response.Write("<td>" + item.Author + "</td>");
-                              
-            }
-            Response.Write("</table>");
-            %>
-        </div>
+        
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <center>
-        <% var books = db.getBooks(TextBox1.Text); Response.Write("<table>");
+        <% var books = db.getBooks(TextBox1.Text); Response.Write("<table>");Response.Write("<tr>");
             foreach (var item in books)
             {
-                Response.Write("<tr>");
+                
                 string imgHTML = "<img src=\"Content/Images/" + item.Isbn + ".jpg\" height=170px width=100px />";
                 Response.Write("<td>" + imgHTML + "</td>");
+                Response.Write("<td>");
+                Response.Write("<table>");
+                Response.Write("<tr>");
                 Response.Write("<td>" + item.Title + "</td>");
+                Response.Write("</tr>");
+                Response.Write("<tr>");
                 Response.Write("<td>" + item.Author + "</td>");
-                              
+                Response.Write("</tr>");        
+                Response.Write("</table>");
+                Response.Write("</td>");
             }
-            Response.Write("</table>");
+            Response.Write("</tr>");Response.Write("</table>");
             %>
             </center>
     </form>

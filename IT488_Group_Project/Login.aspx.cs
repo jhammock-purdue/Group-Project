@@ -7,9 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace IT488_Group_Project
 {
-    public partial class _Default : Page
+    public partial class Login : System.Web.UI.Page
     {
-        public DB db = new DB();
         protected void Page_Load(object sender, EventArgs e)
         {
 

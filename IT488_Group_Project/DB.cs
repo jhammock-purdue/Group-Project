@@ -63,7 +63,7 @@ namespace IT488_Group_Project
             conn = new SqlConnection(connectionString);
             conn.Open();
 
-            string bookQuery = "SELECT Author, ISBN, Genre, Title, Amount, Release FROM[Books] where amount > 0";
+            string bookQuery = "SELECT Author, ISBN, Genre, Title, Amount, Release FROM[Books] where amount > 0 order by Title";
             SqlCommand cmd = new SqlCommand(bookQuery, conn);
 
             reader = cmd.ExecuteReader();

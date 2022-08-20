@@ -12,7 +12,7 @@ namespace IT488_Group_Project
         public DB db = new DB();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             ddlAvailableBooks.DataSource = db.getAvailableBooks().ToList();
             ddlAvailableBooks.DataTextField = "Title";
             ddlAvailableBooks.DataValueField = "ISBN";
@@ -23,6 +23,7 @@ namespace IT488_Group_Project
             ddlAccount.DataTextField = "AccountNumber";
             ddlAccount.DataValueField = "FirstName";
             ddlAccount.DataBind();
+
         }
     }
 }

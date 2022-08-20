@@ -11,7 +11,7 @@ namespace IT488_Group_Project
 {
 
 
-    public partial class _Default
+    public partial class Librarian
     {
 
         /// <summary>
@@ -22,5 +22,23 @@ namespace IT488_Group_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList AvailableBooksDDL;
+
+        /// <summary>
+        /// AccountsDDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AccountsDDL;
+
+        /// <summary>
+        /// AssignRental control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AssignRental;
     }
 }

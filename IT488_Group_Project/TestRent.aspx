@@ -12,12 +12,6 @@
         </div>
         <asp:DropDownList ID="ddlAvailableBooks" runat="server" Height="18px" Width="147px">
         </asp:DropDownList>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <asp:DropDownList ID="ddlAccount" runat="server" Height="18px" Width="149px">
         </asp:DropDownList>
         <center>
