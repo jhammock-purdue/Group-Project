@@ -54,6 +54,35 @@ namespace IT488_Group_Project
             return books;
         }
 
+        public List<Book> getMyBooks(string searchTerm)
+        {
+
+
+            SqlDataReader reader;
+
+            conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            string bookQuery = "SELECT Author, ISBN, Genre, Title, Amount, Release FROM[Books] where account_number = '" + searchTerm + "'";
+            SqlCommand cmd = new SqlCommand(bookQuery, conn);
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string author = (string)reader.GetValue(0);
+                int isbn = (int)reader.GetValue(1);
+                string genre = (string)reader.GetValue(2);
+                string title = (string)reader.GetValue(3);
+                int amount = (int)reader.GetValue(4);
+                int release = (int)reader.GetValue(5);
+
+                books.Add(new Book(title, genre, author, isbn, release, amount));
+            }
+            reader.Close();
+
+            return books;
+        }
+
         public List<Book> getAvailableBooks()
         {
 
@@ -139,6 +168,8 @@ namespace IT488_Group_Project
 
             return accounts;
         }
+
+
 
 
 

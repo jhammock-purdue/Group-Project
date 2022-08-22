@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Browse.aspx.cs" Inherits="IT488_Group_Project.Browse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="MyAccount.aspx.cs" Inherits="IT488_Group_Project.MyAccount" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -7,10 +7,12 @@
 
     
         
-        <asp:Label ID="Label1" runat="server" Text="Search by Genre, Title, Author, ISBN, or Release Date:"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+        
         <center>
-        <%  var books = db.getBooks(TextBox1.Text); Response.Write("<table>");
+
+        <%  if (Session["username"] != "") { 
+            var books = db.getBooks(Session["username"].ToString()); Response.Write("<table>");
             int counter = 0;
             foreach (var item in books)
             {
@@ -67,7 +69,11 @@
 
 
             }
-            Response.Write("</table>");
+            Response.Write("</table>");}
+            else
+            {
+                Response.Write("Please Log in to view your account details.");
+            }
             %>
 
 

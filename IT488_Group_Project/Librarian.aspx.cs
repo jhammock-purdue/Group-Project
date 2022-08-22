@@ -20,7 +20,7 @@ namespace IT488_Group_Project
 
             AccountsDDL.DataSource = db.getAccounts().ToList();
             AccountsDDL.DataTextField = "AccountNumber";
-            AccountsDDL.DataValueField = "FirstName";
+            AccountsDDL.DataValueField = "AccountNumber";
             AccountsDDL.DataBind();
 
             List<Book> books = db.getAvailableBooks();

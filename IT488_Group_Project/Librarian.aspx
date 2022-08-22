@@ -6,6 +6,7 @@
         <center>
             <h1>Rental Assignment</h1>
         <div>
+
             Title:
             <asp:DropDownList ID="AvailableBooksDDL" runat="server">
             </asp:DropDownList>

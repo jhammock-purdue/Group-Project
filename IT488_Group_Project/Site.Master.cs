@@ -9,9 +9,20 @@ namespace IT488_Group_Project
 {
     public partial class SiteMaster : MasterPage
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] == null)
+            {
+                Session["username"] = "";
+            }
+            else
+            {
+                Session["username"] = Session["username"];
+            }
+                
         }
+
+
     }
 }
