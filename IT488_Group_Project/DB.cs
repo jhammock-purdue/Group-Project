@@ -16,7 +16,7 @@ namespace IT488_Group_Project
 
         public DB()
         {
-            connectionString = "Data Source = it488library.database.windows.net; Initial Catalog= BookRental; User ID = LibraryAdmin; Password = 564^LxdT; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+            connectionString = "Data Source = advancesoftware.database.windows.net; Initial Catalog= BookRental; User ID = Group1; Password = IT488IT488!!; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
 
         }
 
