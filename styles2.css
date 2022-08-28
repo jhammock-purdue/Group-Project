@@ -1,3 +1,9 @@
+body {
+  background-image: url(booksBackground.jpg);
+  background-color: rgba(50, 70, 80, 10);
+  background-blend-mode: soft-light;
+  opacity: 0.2;
+}
 * {box-sizing: border-box}
 
 /* style the container */
