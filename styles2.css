@@ -1,5 +1,7 @@
 body {
   background-image: url(booksBackground.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-color: rgba(50, 70, 80, 10);
   background-blend-mode: soft-light;
   opacity: 0.2;
