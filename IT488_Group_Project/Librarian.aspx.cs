@@ -12,6 +12,8 @@ namespace IT488_Group_Project
         public DB db = new DB();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            { 
             AvailableBooksDDL.DataSource = db.getAvailableBooks().ToList();
             AvailableBooksDDL.DataTextField = "Title";
             AvailableBooksDDL.DataValueField = "ISBN";
@@ -24,12 +26,28 @@ namespace IT488_Group_Project
             AccountsDDL.DataBind();
 
             List<Book> books = db.getAvailableBooks();
-
+            }
         }
 
         protected void AssignRental_Click(object sender, EventArgs e)
         {
 
+                int ISBN = Convert.ToInt32(AvailableBooksDDL.SelectedValue);
+                int account = Convert.ToInt32(AccountsDDL.SelectedValue);
+
+
+                string labelText = db.AssignRental(ISBN, account, Session["username"].ToString());
+                Label1.Text = labelText;
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int ISBN = Convert.ToInt32(ISBNReturn.Text);
+            int account = Convert.ToInt32(AccountsDDL.SelectedValue);
+
+            string labelText = db.ReturnRental(ISBN, account, Session["username"].ToString());
+            Label2.Text = labelText;
         }
     }
 }

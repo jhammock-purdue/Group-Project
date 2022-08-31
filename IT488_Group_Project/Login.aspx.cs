@@ -18,7 +18,7 @@ namespace IT488_Group_Project
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection sqlCon = new SqlConnection(@"Data Source = it488library.database.windows.net; User ID = LibraryAdmin; Password = 564^LxdT; Initial Catalog= BookRental;"))
+            using (SqlConnection sqlCon = new SqlConnection(@"Data Source = advancesoftware.database.windows.net; Initial Catalog= BookRental; User ID = defaultSite; Password = p@ssw0rd; Connect Timeout = 60; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False"))
             {
                 sqlCon.Open();
                 string query = "Select count(account) from UserTable where account=@username and password=@password";
@@ -35,6 +35,7 @@ namespace IT488_Group_Project
                 {
                     Label3.Visible = true;
                 }
+                sqlCon.Close();
             }
         }
     }

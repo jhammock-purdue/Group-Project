@@ -19,17 +19,19 @@
                 if (counter == 0)
                 {
                     Response.Write("<tr>");
-                    Response.Write("<td>" + imgHTML + "</td>");
-                    Response.Write("<td>");
-                    Response.Write("<table>");
-                    Response.Write("<tr>");
-                    Response.Write("<td>" + item.Title + "</td>");
-                    Response.Write("</tr>");
-                    Response.Write("<tr>");
-                    Response.Write("<td>" + item.Author + "</td>");
-                    Response.Write("</tr>");
-                    Response.Write("</table>");
-                    Response.Write("</td>");
+                        Response.Write("<td>" + imgHTML + "</td>");
+                        Response.Write("<td>");
+                            Response.Write("<table>");
+                                Response.Write("<tr>");
+                                    Response.Write("<td>" + item.Title + "</td>");
+                                Response.Write("</tr>");
+                                Response.Write("<tr>");
+                                    Response.Write("<td>" + item.Author + "</td>");
+                                Response.Write("</tr>");
+                            Response.Write("</table>");
+                        Response.Write("</td>");
+                   
+
 
                     counter++;
                 }
@@ -46,6 +48,7 @@
                     Response.Write("</tr>");
                     Response.Write("</table>");
                     Response.Write("</td>");
+                    
                     counter++;
                 }
                 else if (counter == 2)
@@ -61,7 +64,7 @@
                     Response.Write("</tr>");
                     Response.Write("</table>");
                     Response.Write("</td>");
-                    Response.Write("</tr>");
+                    
                     counter = 0;
                 }
 
